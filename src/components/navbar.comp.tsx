@@ -3,7 +3,7 @@ import { Link } from '@tanstack/react-router'
 export function NavBar() {
   return (
     <>
-      <div className="navbar bg-base-100 shadow-sm">
+      <div className="navbar bg-[#3c7238c4] shadow-sm font-semibold">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -31,7 +31,9 @@ export function NavBar() {
               <Link to="/recipes">Rezepte</Link>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">My Recipe Manager</a>
+          <Link to="/" className="p-2">
+            Tisch für <span className="font-black italic">X</span>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
