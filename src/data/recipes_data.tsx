@@ -1,0 +1,177 @@
+export const recipeDatabase = [
+  {
+    id: 'kuerbiscurry',
+    imgURL:
+      'https://images.unsplash.com/photo-1619161208416-b7d5f04c5b99?q=80&w=881&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D',
+    name: 'Kürbiscurry mit Reis',
+    category: 'mittagessen',
+    minutes: 35,
+    servings: 4,
+    ingredients: [
+      { name: 'Hokkaidokürbis', amount: 600, unit: 'g' },
+      { name: 'Basmatireis', amount: 280, unit: 'g' },
+      { name: 'Kokosmilch', amount: 400, unit: 'ml' },
+      { name: 'Kichererbsen, abgetropft', amount: 240, unit: 'g' },
+      { name: 'Currypulver', amount: 2, unit: 'TL' },
+      { name: 'Rapsöl', amount: 1, unit: 'EL' },
+    ],
+    instructions: [
+      'Den Reis nach Packungsanleitung kochen.',
+      'Den Kürbis würfeln und mit dem Currypulver im Öl anbraten.',
+      'Kokosmilch und Kichererbsen dazugeben. Etwa 20 Minuten köcheln lassen und mit dem Reis servieren.',
+    ],
+  },
+  {
+    id: 'chili-sin-carne',
+    imgURL:
+      'https://images.unsplash.com/photo-1708782340358-8d5ef6dbb3c1?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D',
+    name: 'Chili sin Carne',
+    category: 'mittagessen',
+    minutes: 35,
+    servings: 4,
+    ingredients: [
+      { name: 'Kidneybohnen, abgetropft', amount: 480, unit: 'g' },
+      { name: 'Gehackte Tomaten', amount: 800, unit: 'g' },
+      { name: 'Mais, abgetropft', amount: 150, unit: 'g' },
+      { name: 'Rote Paprika', amount: 1, unit: 'Stück' },
+      { name: 'Zwiebel', amount: 1, unit: 'Stück' },
+      { name: 'Olivenöl', amount: 1, unit: 'EL' },
+      { name: 'Chilipulver', amount: 1, unit: 'TL' },
+    ],
+    instructions: [
+      'Zwiebel und Paprika würfeln und im Öl anbraten.',
+      'Chilipulver, gehackte Tomaten, Kidneybohnen und Mais dazugeben.',
+      'Das Chili etwa 25 Minuten bei mittlerer Hitze köcheln lassen.',
+    ],
+  },
+  {
+    id: 'spinat-feta-lasagne',
+    imgURL:
+      'https://images.unsplash.com/photo-1625215740221-1800b95852f8?q=80&w=938&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D',
+    name: 'Spinat-Feta-Lasagne',
+    category: 'mittagessen',
+    minutes: 50,
+    servings: 4,
+    ingredients: [
+      { name: 'Lasagneplatten', amount: 250, unit: 'g' },
+      { name: 'Blattspinat', amount: 400, unit: 'g' },
+      { name: 'Feta', amount: 200, unit: 'g' },
+      { name: 'Passierte Tomaten', amount: 700, unit: 'ml' },
+      { name: 'Geriebener Mozzarella', amount: 120, unit: 'g' },
+    ],
+    instructions: [
+      'Den Ofen auf 190 °C Ober-/Unterhitze vorheizen. Den Spinat in einer Pfanne zusammenfallen lassen und mit zerbröseltem Feta mischen.',
+      'Tomatensauce, Lasagneplatten und Spinatmischung abwechselnd in eine Auflaufform schichten. Mit Sauce und Mozzarella abschließen.',
+      'Die Lasagne etwa 35 Minuten backen, bis die Nudeln weich sind.',
+    ],
+  },
+  {
+    id: 'gebratener-gemuesereis',
+    imgURL:
+      'https://images.unsplash.com/photo-1595940573217-d78cb8cc60e2?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D',
+    name: 'Gebratener Gemüsereis',
+    category: 'mittagessen',
+    minutes: 30,
+    servings: 2,
+    ingredients: [
+      { name: 'Jasminreis', amount: 150, unit: 'g' },
+      { name: 'Karotten', amount: 120, unit: 'g' },
+      { name: 'Erbsen', amount: 100, unit: 'g' },
+      { name: 'Eier', amount: 2, unit: 'Stück' },
+      { name: 'Sojasauce', amount: 2, unit: 'EL' },
+      { name: 'Rapsöl', amount: 1, unit: 'EL' },
+    ],
+    instructions: [
+      'Den Reis nach Packungsanleitung kochen und gut abtropfen lassen.',
+      'Die Karotten würfeln und mit den Erbsen im Öl anbraten. Das Gemüse zur Seite schieben, die Eier in die Pfanne geben und unter Rühren stocken lassen.',
+      'Den Reis dazugeben, alles kurz anbraten und mit Sojasauce abschmecken.',
+    ],
+  },
+  {
+    id: 'ofenpasta',
+    imgURL:
+      'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D',
+    name: 'Ofenpasta mit Tomaten',
+    category: 'abendessen',
+    minutes: 40,
+    servings: 4,
+    ingredients: [
+      { name: 'Penne', amount: 350, unit: 'g' },
+      { name: 'Passierte Tomaten', amount: 500, unit: 'ml' },
+      { name: 'Mozzarella', amount: 200, unit: 'g' },
+      { name: 'Knoblauch', amount: 2, unit: 'Zehen' },
+      { name: 'Olivenöl', amount: 1, unit: 'EL' },
+      { name: 'Getrockneter Oregano', amount: 1, unit: 'TL' },
+    ],
+    instructions: [
+      'Die Penne al dente kochen und den Ofen auf 200 °C Ober-/Unterhitze vorheizen.',
+      'Den gehackten Knoblauch kurz im Öl anbraten. Tomaten und Oregano dazugeben.',
+      'Penne und Sauce in eine Auflaufform geben, mit Mozzarella belegen und etwa 20 Minuten backen.',
+    ],
+  },
+  {
+    id: 'gemuese-bowl',
+    imgURL:
+      'https://images.unsplash.com/photo-1731328351443-ea233d9b8037?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D',
+    name: 'Gemüse-Bowl mit Kichererbsen',
+    category: 'abendessen',
+    minutes: 30,
+    servings: 2,
+    ingredients: [
+      { name: 'Couscous', amount: 120, unit: 'g' },
+      { name: 'Kichererbsen aus der Dose, abgetropft', amount: 240, unit: 'g' },
+      { name: 'Karotten', amount: 200, unit: 'g' },
+      { name: 'Rucola', amount: 50, unit: 'g' },
+      { name: 'Olivenöl', amount: 2, unit: 'EL' },
+      { name: 'Zitronensaft', amount: 1, unit: 'EL' },
+    ],
+    instructions: [
+      'Den Couscous nach Packungsanleitung zubereiten.',
+      'Die Karotten in Scheiben schneiden und in der Hälfte des Öls anbraten. Die Kichererbsen kurz mitbraten.',
+      'Alles mit dem Rucola anrichten und mit Zitronensaft und dem restlichen Öl abschmecken.',
+    ],
+  },
+  {
+    id: 'linsensuppe',
+    imgURL:
+      'https://images.unsplash.com/photo-1708782340380-536df8cf6784?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D',
+    name: 'Rote Linsensuppe',
+    category: 'abendessen',
+    minutes: 30,
+    servings: 4,
+    ingredients: [
+      { name: 'Rote Linsen', amount: 200, unit: 'g' },
+      { name: 'Karotten', amount: 200, unit: 'g' },
+      { name: 'Zwiebel', amount: 1, unit: 'Stück' },
+      { name: 'Gemüsebrühe', amount: 900, unit: 'ml' },
+      { name: 'Olivenöl', amount: 1, unit: 'EL' },
+      { name: 'Gemahlener Kreuzkümmel', amount: 1, unit: 'TL' },
+    ],
+    instructions: [
+      'Zwiebel und Karotten würfeln und im Öl anbraten.',
+      'Die Linsen abspülen und mit der Gemüsebrühe und dem Kreuzkümmel in den Topf geben.',
+      'Etwa 20 Minuten köcheln lassen, bis die Linsen weich sind.',
+    ],
+  },
+  {
+    id: 'pilz-quesadillas',
+    imgURL:
+      'https://images.unsplash.com/photo-1704642152462-7932e59e651e?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D',
+    name: 'Quesadillas mit Pilzen',
+    category: 'abendessen',
+    minutes: 20,
+    servings: 2,
+    ingredients: [
+      { name: 'Weizentortillas', amount: 4, unit: 'Stück' },
+      { name: 'Champignons', amount: 200, unit: 'g' },
+      { name: 'Geriebener Gouda', amount: 120, unit: 'g' },
+      { name: 'Frühlingszwiebeln', amount: 2, unit: 'Stück' },
+      { name: 'Rapsöl', amount: 1, unit: 'EL' },
+    ],
+    instructions: [
+      'Champignons und Frühlingszwiebeln schneiden und im Öl anbraten.',
+      'Auf jede Tortilla etwas Füllung und Käse geben und die Tortillas zusammenklappen.',
+      'In einer Pfanne von beiden Seiten rösten, bis der Käse geschmolzen ist.',
+    ],
+  },
+]
