@@ -37,40 +37,52 @@ function RouteComponent() {
 
   return (
     <>
-      <header>
-        <h1>{selectedRecipe.name}</h1>
-        <div className="badge badge-secondary">{selectedRecipe.category}</div>
-        <div className="badge badge-outline">
-          ⏱️ ~{selectedRecipe.minutes} Minuten
+      <header className="flex min-h-[40vh] flex-col items-center justify-center bg-[url('/background.png')] px-6 py-10 text-center">
+        <h1 className="mb-5 font-serif text-4xl font-bold sm:text-5xl">
+          {selectedRecipe.name}
+        </h1>
+        <div className="flex flex-wrap justify-center gap-3">
+          <div className="badge border-0 bg-[#E6EDDF] font-semibold capitalize text-[#3C563A]">
+            {selectedRecipe.category}
+          </div>
+          <div className="badge border-0 bg-[#f2f8ec]">
+            ⏱️ ~{selectedRecipe.minutes} Minuten
+          </div>
         </div>
       </header>
-      <main>
-        <section className="flex">
-          <img src={selectedRecipe.imgURL} className="max-w-lg"></img>
-          <div>
-            <div className="flex gap-5">
-              <h2>Portionen</h2>
+
+      <main className="bg-[#FAF7F0] px-6 py-8 text-[#29251F] sm:py-12">
+        <section className="mx-auto flex max-w-6xl flex-col gap-6 lg:flex-row lg:items-start">
+          <img
+            src={selectedRecipe.imgURL}
+            className="rounded-2xl lg:w-1/2"
+          ></img>
+          <div className=" rounded-2xl border border-[#DED3C2] bg-[#FFFDF8] p-5 lg:flex-1">
+            <h2 className="mb-3 font-serif text-2xl font-bold">Portionen</h2>
+            <div className="mb-5 border-b border-[#DED3C2] pb-5">
               <div className="flex items-center gap-3">
                 <button
-                  className="btn"
+                  className="btn btn-warning"
                   onClick={handleQuitServings}
                   disabled={servings < 1}
                 >
                   -
                 </button>
-                <p>{servings}</p>
-                <button className="btn" onClick={handleAddServings}>
+                <p className="min-w-8 text-center text-lg font-semibold">
+                  {servings}
+                </p>
+                <button className="btn btn-warning" onClick={handleAddServings}>
                   +
                 </button>
               </div>
             </div>
             <div>
-              <h2>Zutaten</h2>
+              <h2 className="mb-3 font-serif text-2xl font-bold">Zutaten</h2>
               {selectedRecipe.ingredients.map((ingredient) => {
                 return (
-                  <div className="flex justify-between">
+                  <div className="flex justify-between gap-4 border-b border-[#DED3C2] py-3">
                     <p>{ingredient.name}</p>
-                    <p>
+                    <p className="shrink-0 whitespace-nowrap text-right font-semibold ">
                       {ingredient.amount * servings} {ingredient.unit}
                     </p>
                   </div>
@@ -79,11 +91,12 @@ function RouteComponent() {
             </div>
           </div>
         </section>
-        <section>
-          <h2>Zubereitung</h2>
+
+        <section className="mx-auto mt-8 max-w-6xl">
+          <h2 className="mb-4 font-serif text-2xl font-bold">Zubereitung</h2>
           {selectedRecipe.instructions.map((instruction) => {
             return (
-              <ol>
+              <ol className="mt-3 list-disc pl-5">
                 <li>{instruction}</li>
               </ol>
             )
