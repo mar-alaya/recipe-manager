@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { createFileRoute, Link } from '@tanstack/react-router'
 
 import { recipeDatabase } from '#/data/recipes_data'
@@ -23,6 +23,18 @@ function RouteComponent() {
     )
   }
 
+  const [servings, setServings] = useState(1)
+
+  function handleAddServings() {
+    setServings(servings + 1)
+  }
+
+  function handleQuitServings() {
+    if (servings >= 1) {
+      setServings(servings - 1)
+    }
+  }
+
   return (
     <>
       <header>
@@ -38,7 +50,19 @@ function RouteComponent() {
           <div>
             <div className="flex gap-5">
               <h2>Portionen</h2>
-              <p>{selectedRecipe.servings}</p>
+              <div className="flex items-center gap-3">
+                <button
+                  className="btn"
+                  onClick={handleQuitServings}
+                  disabled={servings < 1}
+                >
+                  -
+                </button>
+                <p>{servings}</p>
+                <button className="btn" onClick={handleAddServings}>
+                  +
+                </button>
+              </div>
             </div>
             <div>
               <h2>Zutaten</h2>
@@ -47,7 +71,7 @@ function RouteComponent() {
                   <div className="flex justify-between">
                     <p>{ingredient.name}</p>
                     <p>
-                      {ingredient.amount} {ingredient.unit}
+                      {ingredient.amount * servings} {ingredient.unit}
                     </p>
                   </div>
                 )
