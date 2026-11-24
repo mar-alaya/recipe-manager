@@ -2,7 +2,7 @@ export function Hero({ title, subtitle, imgURL }) {
   return (
     <>
       <div
-        className="hero min-h-[30vh]"
+        className="hero min-h-[50vh]"
         style={{
           backgroundImage: `url(${imgURL})`,
         }}

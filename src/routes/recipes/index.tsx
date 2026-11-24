@@ -1,13 +1,15 @@
 import { Hero } from '#/components/hero.comp'
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, useNavigate, useParams } from '@tanstack/react-router'
 import { recipeDatabase } from '#/data/recipes_data'
 import { RecipeCard } from '#/components/recipecard.comp'
 
-export const Route = createFileRoute('/recipes')({
+export const Route = createFileRoute('/recipes/')({
   component: RouteComponent,
 })
 
 function RouteComponent() {
+  const navigate = useNavigate()
+
   return (
     <>
       <header>
@@ -27,6 +29,7 @@ function RouteComponent() {
               name={recipe.name}
               category={recipe.category}
               minutes={recipe.minutes}
+              handler={() => navigate({ to: `/recipes/${recipe.id}` })}
             />
           ))}
         </section>
