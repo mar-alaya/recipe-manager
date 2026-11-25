@@ -15,13 +15,12 @@ export function NavBar() {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                {' '}
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M4 6h16M4 12h8m-8 6h16"
-                />{' '}
+                />
               </svg>
             </div>
             <ul
@@ -39,6 +38,11 @@ export function NavBar() {
           <ul className="menu menu-horizontal px-1">
             <Link to="/recipes">Rezepte</Link>
           </ul>
+        </div>
+        <div className="navbar-end">
+          <Link to="/signin" className="btn btn-warning">
+            Los geht's
+          </Link>
         </div>
       </div>
     </>

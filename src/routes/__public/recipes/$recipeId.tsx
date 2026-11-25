@@ -3,7 +3,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 
 import { recipeDatabase } from '#/data/recipes_data'
 
-export const Route = createFileRoute('/recipes/$recipeId')({
+export const Route = createFileRoute('/__public/recipes/$recipeId')({
   component: RouteComponent,
 })
 

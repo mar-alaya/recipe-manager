@@ -9,86 +9,211 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as RecipesIndexRouteImport } from './routes/recipes/index'
-import { Route as RecipesRecipeIdRouteImport } from './routes/recipes/$recipeId'
+import { Route as _authenticatedRouteImport } from './routes/__authenticated'
+import { Route as _publicRouteImport } from './routes/__public'
+import { Route as _publicIndexRouteImport } from './routes/__public/index'
+import { Route as _authenticatedDashboardIndexRouteImport } from './routes/__authenticated/dashboard/index'
+import { Route as _publicRecipesIndexRouteImport } from './routes/__public/recipes/index'
+import { Route as _publicRecipesRecipeIdRouteImport } from './routes/__public/recipes/$recipeId'
+import { Route as _publicSigninSplatRouteImport } from './routes/__public/signin.$'
+import { Route as _publicSignupSplatRouteImport } from './routes/__public/signup.$'
 
-const IndexRoute = IndexRouteImport.update({
+const _authenticatedRoute = _authenticatedRouteImport.update({
+  id: '/__authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const _publicRoute = _publicRouteImport.update({
+  id: '/__public',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const _publicIndexRoute = _publicIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => _publicRoute,
 } as any)
-const RecipesIndexRoute = RecipesIndexRouteImport.update({
+const _authenticatedDashboardIndexRoute =
+  _authenticatedDashboardIndexRouteImport.update({
+    id: '/dashboard/',
+    path: '/dashboard/',
+    getParentRoute: () => _authenticatedRoute,
+  } as any)
+const _publicRecipesIndexRoute = _publicRecipesIndexRouteImport.update({
   id: '/recipes/',
   path: '/recipes/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => _publicRoute,
 } as any)
-const RecipesRecipeIdRoute = RecipesRecipeIdRouteImport.update({
+const _publicRecipesRecipeIdRoute = _publicRecipesRecipeIdRouteImport.update({
   id: '/recipes/$recipeId',
   path: '/recipes/$recipeId',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => _publicRoute,
+} as any)
+const _publicSigninSplatRoute = _publicSigninSplatRouteImport.update({
+  id: '/signin/$',
+  path: '/signin/$',
+  getParentRoute: () => _publicRoute,
+} as any)
+const _publicSignupSplatRoute = _publicSignupSplatRouteImport.update({
+  id: '/signup/$',
+  path: '/signup/$',
+  getParentRoute: () => _publicRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/recipes/$recipeId': typeof RecipesRecipeIdRoute
-  '/recipes/': typeof RecipesIndexRoute
+  '/': typeof _publicIndexRoute
+  '/recipes/$recipeId': typeof _publicRecipesRecipeIdRoute
+  '/signin/$': typeof _publicSigninSplatRoute
+  '/signup/$': typeof _publicSignupSplatRoute
+  '/dashboard/': typeof _authenticatedDashboardIndexRoute
+  '/recipes/': typeof _publicRecipesIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/recipes/$recipeId': typeof RecipesRecipeIdRoute
-  '/recipes': typeof RecipesIndexRoute
+  '/': typeof _publicIndexRoute
+  '/recipes/$recipeId': typeof _publicRecipesRecipeIdRoute
+  '/signin/$': typeof _publicSigninSplatRoute
+  '/signup/$': typeof _publicSignupSplatRoute
+  '/dashboard': typeof _authenticatedDashboardIndexRoute
+  '/recipes': typeof _publicRecipesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/recipes/$recipeId': typeof RecipesRecipeIdRoute
-  '/recipes/': typeof RecipesIndexRoute
+  '/__authenticated': typeof _authenticatedRouteWithChildren
+  '/__public': typeof _publicRouteWithChildren
+  '/__public/': typeof _publicIndexRoute
+  '/__public/recipes/$recipeId': typeof _publicRecipesRecipeIdRoute
+  '/__public/signin/$': typeof _publicSigninSplatRoute
+  '/__public/signup/$': typeof _publicSignupSplatRoute
+  '/__authenticated/dashboard/': typeof _authenticatedDashboardIndexRoute
+  '/__public/recipes/': typeof _publicRecipesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/recipes/$recipeId' | '/recipes/'
+  fullPaths:
+    | '/'
+    | '/recipes/$recipeId'
+    | '/signin/$'
+    | '/signup/$'
+    | '/dashboard/'
+    | '/recipes/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/recipes/$recipeId' | '/recipes'
-  id: '__root__' | '/' | '/recipes/$recipeId' | '/recipes/'
+  to:
+    | '/'
+    | '/recipes/$recipeId'
+    | '/signin/$'
+    | '/signup/$'
+    | '/dashboard'
+    | '/recipes'
+  id:
+    | '__root__'
+    | '/__authenticated'
+    | '/__public'
+    | '/__public/'
+    | '/__public/recipes/$recipeId'
+    | '/__public/signin/$'
+    | '/__public/signup/$'
+    | '/__authenticated/dashboard/'
+    | '/__public/recipes/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  RecipesRecipeIdRoute: typeof RecipesRecipeIdRoute
-  RecipesIndexRoute: typeof RecipesIndexRoute
+  _authenticatedRoute: typeof _authenticatedRouteWithChildren
+  _publicRoute: typeof _publicRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/__authenticated': {
+      id: '/__authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof _authenticatedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/__public': {
+      id: '/__public'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof _publicRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/__public/': {
+      id: '/__public/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof _publicIndexRouteImport
+      parentRoute: typeof _publicRoute
     }
-    '/recipes/': {
-      id: '/recipes/'
+    '/__authenticated/dashboard/': {
+      id: '/__authenticated/dashboard/'
+      path: '/dashboard'
+      fullPath: '/dashboard/'
+      preLoaderRoute: typeof _authenticatedDashboardIndexRouteImport
+      parentRoute: typeof _authenticatedRoute
+    }
+    '/__public/recipes/': {
+      id: '/__public/recipes/'
       path: '/recipes'
       fullPath: '/recipes/'
-      preLoaderRoute: typeof RecipesIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof _publicRecipesIndexRouteImport
+      parentRoute: typeof _publicRoute
     }
-    '/recipes/$recipeId': {
-      id: '/recipes/$recipeId'
+    '/__public/recipes/$recipeId': {
+      id: '/__public/recipes/$recipeId'
       path: '/recipes/$recipeId'
       fullPath: '/recipes/$recipeId'
-      preLoaderRoute: typeof RecipesRecipeIdRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof _publicRecipesRecipeIdRouteImport
+      parentRoute: typeof _publicRoute
+    }
+    '/__public/signin/$': {
+      id: '/__public/signin/$'
+      path: '/signin/$'
+      fullPath: '/signin/$'
+      preLoaderRoute: typeof _publicSigninSplatRouteImport
+      parentRoute: typeof _publicRoute
+    }
+    '/__public/signup/$': {
+      id: '/__public/signup/$'
+      path: '/signup/$'
+      fullPath: '/signup/$'
+      preLoaderRoute: typeof _publicSignupSplatRouteImport
+      parentRoute: typeof _publicRoute
     }
   }
 }
 
+interface _authenticatedRouteChildren {
+  _authenticatedDashboardIndexRoute: typeof _authenticatedDashboardIndexRoute
+}
+
+const _authenticatedRouteChildren: _authenticatedRouteChildren = {
+  _authenticatedDashboardIndexRoute: _authenticatedDashboardIndexRoute,
+}
+
+const _authenticatedRouteWithChildren = _authenticatedRoute._addFileChildren(
+  _authenticatedRouteChildren,
+)
+
+interface _publicRouteChildren {
+  _publicIndexRoute: typeof _publicIndexRoute
+  _publicRecipesRecipeIdRoute: typeof _publicRecipesRecipeIdRoute
+  _publicSigninSplatRoute: typeof _publicSigninSplatRoute
+  _publicSignupSplatRoute: typeof _publicSignupSplatRoute
+  _publicRecipesIndexRoute: typeof _publicRecipesIndexRoute
+}
+
+const _publicRouteChildren: _publicRouteChildren = {
+  _publicIndexRoute: _publicIndexRoute,
+  _publicRecipesRecipeIdRoute: _publicRecipesRecipeIdRoute,
+  _publicSigninSplatRoute: _publicSigninSplatRoute,
+  _publicSignupSplatRoute: _publicSignupSplatRoute,
+  _publicRecipesIndexRoute: _publicRecipesIndexRoute,
+}
+
+const _publicRouteWithChildren =
+  _publicRoute._addFileChildren(_publicRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  RecipesRecipeIdRoute: RecipesRecipeIdRoute,
-  RecipesIndexRoute: RecipesIndexRoute,
+  _authenticatedRoute: _authenticatedRouteWithChildren,
+  _publicRoute: _publicRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -3,7 +3,7 @@ import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { recipeDatabase } from '#/data/recipes_data'
 import { RecipeCard } from '#/components/recipecard.comp'
 
-export const Route = createFileRoute('/recipes/')({
+export const Route = createFileRoute('/__public/recipes/')({
   component: RouteComponent,
 })
 
