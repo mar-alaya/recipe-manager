@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { createFileRoute, Link } from '@tanstack/react-router'
 
 import { recipeDatabase } from '#/data/recipes_data'
+import { Show } from '@clerk/react'
 
 export const Route = createFileRoute('/__public/recipes/$recipeId')({
   component: RouteComponent,
@@ -89,6 +90,11 @@ function RouteComponent() {
                 )
               })}
             </div>
+            <Show when={'signed-in'}>
+              <button className="btn btn-warning my-5">
+                Zu Favoriten hinzüfugen
+              </button>
+            </Show>
           </div>
         </section>
 
