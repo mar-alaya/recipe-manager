@@ -1,5 +1,5 @@
 import { Hero } from '#/components/hero.comp'
-import { createFileRoute, useNavigate, useParams } from '@tanstack/react-router'
+import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { recipeDatabase } from '#/data/recipes_data'
 import { RecipeCard } from '#/components/recipecard.comp'
 
