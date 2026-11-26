@@ -1,7 +1,10 @@
-export function FavouriteCard({ id, imgURL, name }) {
+export function FavouriteCard({ id, imgURL, name, handler }) {
   return (
     <>
-      <div className="card w-50 shadow-md my-5 hover:shadow-xl bg-base-100 cursor-pointer">
+      <div
+        className="card w-50 shadow-md my-5 hover:shadow-xl bg-base-100 cursor-pointer"
+        onClick={handler}
+      >
         <figure className="px-10 pt-10">
           <img src={imgURL} alt={id} className="rounded-xl" />
         </figure>

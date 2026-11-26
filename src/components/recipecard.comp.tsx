@@ -1,7 +1,7 @@
 export function RecipeCard({ id, imgURL, name, category, minutes, handler }) {
   return (
     <>
-      <div className="card bg-[#3c7238c4] w-96 shadow-md border border-[#DED3C2]">
+      <div className="card bg-base-100 w-96 shadow-md border border-[#DED3C2] my-5">
         <figure>
           <img src={imgURL} alt={id} />
         </figure>

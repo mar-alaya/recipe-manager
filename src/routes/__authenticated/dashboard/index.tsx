@@ -40,6 +40,7 @@ function RouteComponent() {
                 id={recipe.id}
                 imgURL={recipe.imgURL}
                 name={recipe.name}
+                handler={() => navigate({ to: `/recipes/${recipe.id}` })}
               />
             ))}
           </div>

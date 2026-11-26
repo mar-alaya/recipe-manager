@@ -45,13 +45,11 @@ function RouteComponent() {
   const { user } = useUser()
   const userID = user?.id
 
-  const [isFavourite, setisFavourite] = useState(false)
   const [favourites, setFavourites] = useState(
     JSON.parse(localStorage.getItem(userID)) || [],
   )
 
   function handleFavourite(favourite) {
-    setisFavourite(!isFavourite)
     favourite = selectedRecipe
     setFavourites((prevFavourites) => {
       return [...prevFavourites, favourite]
@@ -121,9 +119,9 @@ function RouteComponent() {
                 className="btn btn-warning my-5"
                 onClick={handleFavourite}
               >
-                {isFavourite
-                  ? '❤︎ Aus Favoriten entfernen'
-                  : '♡ Zu Favoriten hinzufügen '}
+                {favourites.includes(selectedRecipe)
+                  ? '❤︎ Aus Favoriten Entfernen'
+                  : '♡ Zu Favoriten Hinzufügen'}
               </button>
             </Show>
           </div>
