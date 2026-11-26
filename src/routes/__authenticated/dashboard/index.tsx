@@ -5,10 +5,16 @@ export const Route = createFileRoute('/__authenticated/dashboard/')({
 })
 
 function RouteComponent() {
+  const [favourites, setFavourites] = useState(
+    JSON.parse(localStorage.getItem(userID)) || [],
+  )
+
+  console.log(favourites)
+
   return (
     <>
       <header>
-        <h1>Mein Bereich</h1>
+        <h1>Mein Bereich</h1>ä
       </header>
       <main>
         <section>

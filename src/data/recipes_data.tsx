@@ -6,7 +6,7 @@ export const recipeDatabase = [
     name: 'Kürbiscurry mit Reis',
     category: 'mittagessen',
     minutes: 35,
-    servings: 1,
+    isFavourite: false,
     ingredients: [
       { name: 'Hokkaidokürbis', amount: 150, unit: 'g' },
       { name: 'Basmatireis', amount: 70, unit: 'g' },
@@ -28,7 +28,7 @@ export const recipeDatabase = [
     name: 'Chili sin Carne',
     category: 'mittagessen',
     minutes: 35,
-    servings: 1,
+    isFavourite: false,
     ingredients: [
       { name: 'Kidneybohnen, abgetropft', amount: 120, unit: 'g' },
       { name: 'Gehackte Tomaten', amount: 200, unit: 'g' },
@@ -51,7 +51,7 @@ export const recipeDatabase = [
     name: 'Spinat-Feta-Lasagne',
     category: 'mittagessen',
     minutes: 50,
-    servings: 1,
+    isFavourite: false,
     ingredients: [
       { name: 'Lasagneplatten', amount: 62.5, unit: 'g' },
       { name: 'Blattspinat', amount: 100, unit: 'g' },
@@ -72,7 +72,7 @@ export const recipeDatabase = [
     name: 'Gebratener Gemüsereis',
     category: 'mittagessen',
     minutes: 30,
-    servings: 1,
+    isFavourite: false,
     ingredients: [
       { name: 'Jasminreis', amount: 75, unit: 'g' },
       { name: 'Karotten', amount: 60, unit: 'g' },
@@ -94,7 +94,7 @@ export const recipeDatabase = [
     name: 'Ofenpasta mit Tomaten',
     category: 'abendessen',
     minutes: 40,
-    servings: 4,
+    isFavourite: false,
     ingredients: [
       { name: 'Penne', amount: 87.5, unit: 'g' },
       { name: 'Passierte Tomaten', amount: 125, unit: 'ml' },
@@ -116,7 +116,7 @@ export const recipeDatabase = [
     name: 'Gemüse-Bowl mit Kichererbsen',
     category: 'abendessen',
     minutes: 30,
-    servings: 1,
+    isFavourite: false,
     ingredients: [
       { name: 'Couscous', amount: 60, unit: 'g' },
       { name: 'Kichererbsen aus der Dose, abgetropft', amount: 120, unit: 'g' },
@@ -138,7 +138,7 @@ export const recipeDatabase = [
     name: 'Rote Linsensuppe',
     category: 'abendessen',
     minutes: 30,
-    servings: 1,
+    isFavourite: false,
     ingredients: [
       { name: 'Rote Linsen', amount: 50, unit: 'g' },
       { name: 'Karotten', amount: 50, unit: 'g' },
@@ -160,7 +160,7 @@ export const recipeDatabase = [
     name: 'Quesadillas mit Pilzen',
     category: 'abendessen',
     minutes: 20,
-    servings: 1,
+    isFavourite: false,
     ingredients: [
       { name: 'Weizentortillas', amount: 2, unit: 'Stück' },
       { name: 'Champignons', amount: 100, unit: 'g' },

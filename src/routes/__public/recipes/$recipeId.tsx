@@ -1,14 +1,16 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { createFileRoute, Link } from '@tanstack/react-router'
 
 import { recipeDatabase } from '#/data/recipes_data'
-import { Show } from '@clerk/react'
+import { Show, useUser } from '@clerk/react'
 
 export const Route = createFileRoute('/__public/recipes/$recipeId')({
   component: RouteComponent,
 })
 
 function RouteComponent() {
+  // Params um die URL zu erreichen
+
   const { recipeId } = Route.useParams()
   const selectedRecipe = recipeDatabase.find((recipe) => recipe.id === recipeId)
 
@@ -24,6 +26,8 @@ function RouteComponent() {
     )
   }
 
+  // Edit Servings Flow
+
   const [servings, setServings] = useState(1)
 
   function handleAddServings() {
@@ -35,6 +39,28 @@ function RouteComponent() {
       setServings(servings - 1)
     }
   }
+
+  // Favourites Flow
+
+  const { user } = useUser()
+  const userID = user?.id
+
+  const [isFavourite, setisFavourite] = useState(false)
+  const [favourites, setFavourites] = useState(
+    JSON.parse(localStorage.getItem(userID)) || [],
+  )
+
+  function handleFavourite(favourite) {
+    setisFavourite(!isFavourite)
+    favourite = selectedRecipe
+    setFavourites((prevFavourites) => {
+      return [...prevFavourites, favourite]
+    })
+  }
+
+  useEffect(() => {
+    localStorage.setItem(userID, JSON.stringify(favourites))
+  }, [favourites, userID])
 
   return (
     <>
@@ -91,8 +117,13 @@ function RouteComponent() {
               })}
             </div>
             <Show when={'signed-in'}>
-              <button className="btn btn-warning my-5">
-                Zu Favoriten hinzüfugen
+              <button
+                className="btn btn-warning my-5"
+                onClick={handleFavourite}
+              >
+                {isFavourite
+                  ? '❤︎ Aus Favoriten entfernen'
+                  : '♡ Zu Favoriten hinzufügen '}
               </button>
             </Show>
           </div>
